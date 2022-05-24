@@ -68,16 +68,20 @@ public class Test extends AppCompatActivity implements View.OnClickListener{
 
     public void onClick(View view) {
 
+
         switch (view.getId()) {
             case R.id.submit:
                 String em = input.getText().toString();
+                char c= (char)(random+97);
+                String str= String.valueOf(c);
                 if (input.getText().length() > 0) {
-                    if (em.equalsIgnoreCase("a") ) {
+                    if (em.equalsIgnoreCase(str) ) {
                         rnd = new Random();
                         random = rnd.nextInt(26);
                         i.setImageResource(drawables[random]);
                         ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(1000, 1000);
                         i.setLayoutParams(layoutParams);
+                        input.getText().clear();
                         score++;
                         counter++;
                         if (counter == 5) {
@@ -95,16 +99,17 @@ public class Test extends AppCompatActivity implements View.OnClickListener{
                 }
                 break;
             case R.id.next:
-            rnd = new Random();
-            random = rnd.nextInt(26);
-            i.setImageResource(drawables[random]);
-            ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(1000, 1000);
-            i.setLayoutParams(layoutParams);
-            counter++;
-            if (counter == 5) {
-                Intent intent = new Intent(this, Score.class);
-                intent.putExtra("score", score);
-                startActivity(intent);
+                rnd = new Random();
+                random = rnd.nextInt(26);
+                i.setImageResource(drawables[random]);
+                ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(1000, 1000);
+                i.setLayoutParams(layoutParams);
+                input.getText().clear();
+                counter++;
+                if (counter == 5) {
+                    Intent intent = new Intent(this, Score.class);
+                    intent.putExtra("score", score);
+                    startActivity(intent);
 
             }
         }

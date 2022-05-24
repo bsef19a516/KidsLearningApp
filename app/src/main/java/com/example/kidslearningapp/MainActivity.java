@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
     public void openWebPage() {
-        Uri webpage = Uri.parse("https://github.com/bsef19a516");
+        Uri webpage = Uri.parse("https://github.com/bsef19a516/KidsLearningApp");
         Intent intent = new Intent(Intent.ACTION_VIEW,webpage);
         startActivity(intent);
     }

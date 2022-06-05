@@ -31,21 +31,18 @@
             android:id="@+id/alpha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
             android:text="alpha" />
 
         <RadioButton
             android:id="@+id/beta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
             android:text="beta" />
 
         <RadioButton
             android:id="@+id/gemma"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
             android:text="gemma" />
     </RadioGroup>
 

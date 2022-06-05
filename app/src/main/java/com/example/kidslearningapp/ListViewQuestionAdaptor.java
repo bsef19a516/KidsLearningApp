@@ -25,6 +25,7 @@ public class ListViewQuestionAdaptor extends ArrayAdapter<ListViewTest> {
     public ListViewQuestionAdaptor(@NonNull Context context, @NonNull ArrayList<ListViewTest> questionsArrayList) {
         super(context,0, questionsArrayList);
     }
+    public static ArrayList<String> selectedAnswers;
     @SuppressLint("ViewHolder")
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -35,19 +36,18 @@ public class ListViewQuestionAdaptor extends ArrayAdapter<ListViewTest> {
         RadioButton alpha = (RadioButton) convertView.findViewById(R.id.alpha);
         RadioButton beta = (RadioButton) convertView.findViewById(R.id.beta);
         RadioButton gemma = (RadioButton) convertView.findViewById(R.id.gemma);
+        selectedAnswers = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            selectedAnswers.add("Not Attempted");
+        }
 // perform setOnCheckedChangeListener event on yes button
         alpha.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 // set Yes values in ArrayList if RadioButton is checked
                 if (isChecked)
-                    //selectedAnswers.set(i, "Yes");
-                {
-                    if(alpha.getText().equals(questions.answer))
-                    {
-                        Log.d("you selected", "Alpha option");
-                    }
-                }
+                    selectedAnswers.set(position, "Yes");
+
             }
         });
 // perform setOnCheckedChangeListener event on no button
@@ -55,10 +55,8 @@ public class ListViewQuestionAdaptor extends ArrayAdapter<ListViewTest> {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 // set No values in ArrayList if RadioButton is checked
-                if (isChecked){
-                    Log.d("you selected", "beta option");
-                }
-                    //selectedAnswers.set(i, "No");
+                if (isChecked)
+                    selectedAnswers.set(position, "No");
 
             }
         });
@@ -66,10 +64,8 @@ public class ListViewQuestionAdaptor extends ArrayAdapter<ListViewTest> {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 // set No values in ArrayList if RadioButton is checked
-                if (isChecked){
-                    Log.d("you selected", "gemma option");
-                }
-                //selectedAnswers.set(i, "No");
+                if (isChecked)
+                selectedAnswers.set(position, "No");
 
             }
         });

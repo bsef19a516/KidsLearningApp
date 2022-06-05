@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,10 +26,18 @@ public class ListViewQuestionAdaptor extends ArrayAdapter<ListViewTest> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         ListViewTest questions = getItem(position);
-        convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_alphabet_listview, parent, false);
+        convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_test_listview, parent, false);
         EditText answer = convertView.findViewById(R.id.answer);
         ImageView imageView = convertView.findViewById(R.id.imageView4);
-        answer.setText(questions.question);
+        //String temp=answer.getText().toString();
+        //if(temp.equalsIgnoreCase(questions.answer))
+        {
+        //    Toast.makeText(getContext().getApplicationContext(), "Right Answer", Toast.LENGTH_SHORT).show();
+        }
+        //else
+        {
+        //    Toast.makeText(getContext().getApplicationContext(), "Wrong Answer", Toast.LENGTH_SHORT).show();
+        }
         imageView.setImageResource(questions.imgId);
         return convertView;
     }

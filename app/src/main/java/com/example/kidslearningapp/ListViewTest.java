@@ -1,10 +1,10 @@
 package com.example.kidslearningapp;
 
 public class ListViewTest {
-    public String question;
+    public String answer;
     public int imgId;
     public ListViewTest(String alphabet, int imgId) {
-        this.question = alphabet;
+        this.answer = alphabet;
         this.imgId = imgId;
     }
 }

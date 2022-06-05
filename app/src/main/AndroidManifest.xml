@@ -31,6 +31,9 @@
             android:name=".ListViewAlphabet"
             android:exported="false" />
         <activity
+            android:name=".ListViewQuestion"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

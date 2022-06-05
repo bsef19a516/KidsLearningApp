@@ -33,7 +33,7 @@ public class MainActivity_listView extends AppCompatActivity implements View.OnC
                 startActivity(i);
                 break;
             case R.id.test:
-                Intent intent1 = new Intent(this, Test.class);
+                Intent intent1 = new Intent(this, ListViewQuestion.class);
                 startActivity(intent1);
                 break;
             case R.id.github:

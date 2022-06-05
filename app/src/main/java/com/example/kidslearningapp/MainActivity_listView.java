@@ -8,13 +8,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener  {
+public class MainActivity_listView extends AppCompatActivity implements View.OnClickListener  {
     Button gh, l, t, listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_listview);
         l = (Button) findViewById(R.id.learn_listView);
         t = (Button) findViewById(R.id.test);
         gh = (Button) findViewById(R.id.github);
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.learn_listView:
-                Intent i = new Intent(this,Learn.class);
+                Intent i = new Intent(this,ListViewAlphabet.class);
                 startActivity(i);
                 break;
             case R.id.test:
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 openWebPage();
                 break;
             case R.id.listView:
-                Intent intent2 = new Intent(this, MainActivity_listView.class);
+                Intent intent2 = new Intent(this, MainActivity.class);
                 startActivity(intent2);
                 finish();
                 break;

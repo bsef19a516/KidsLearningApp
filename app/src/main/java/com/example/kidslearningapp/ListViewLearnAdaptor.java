@@ -27,10 +27,12 @@ public class ListViewLearnAdaptor extends ArrayAdapter<ListViewLearn> {
 
         ListViewLearn alphabets = getItem(position);
         convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_alphabet_listview, parent, false);
-        TextView textViewName = convertView.findViewById(R.id.textView3);
+        TextView textView = convertView.findViewById(R.id.textView3);
         ImageView imageView = convertView.findViewById(R.id.imageView3);
-        textViewName.setText(alphabets.alphabet);
+        TextView textView2 = convertView.findViewById(R.id.textView4);
+        textView.setText(alphabets.alphabet);
         imageView.setImageResource(alphabets.imgId);
+        textView2.setText(alphabets.name);
         return convertView;
     }
 }

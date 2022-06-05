@@ -2,12 +2,16 @@ package com.example.kidslearningapp;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,17 +31,48 @@ public class ListViewQuestionAdaptor extends ArrayAdapter<ListViewTest> {
 
         ListViewTest questions = getItem(position);
         convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_test_listview, parent, false);
-        EditText answer = convertView.findViewById(R.id.answer);
         ImageView imageView = convertView.findViewById(R.id.imageView4);
-        //String temp=answer.getText().toString();
-        //if(temp.equalsIgnoreCase(questions.answer))
-        {
-        //    Toast.makeText(getContext().getApplicationContext(), "Right Answer", Toast.LENGTH_SHORT).show();
-        }
-        //else
-        {
-        //    Toast.makeText(getContext().getApplicationContext(), "Wrong Answer", Toast.LENGTH_SHORT).show();
-        }
+        RadioButton alpha = (RadioButton) convertView.findViewById(R.id.alpha);
+        RadioButton beta = (RadioButton) convertView.findViewById(R.id.beta);
+        RadioButton gemma = (RadioButton) convertView.findViewById(R.id.gemma);
+// perform setOnCheckedChangeListener event on yes button
+        alpha.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+// set Yes values in ArrayList if RadioButton is checked
+                if (isChecked)
+                    //selectedAnswers.set(i, "Yes");
+                {
+                    if(alpha.getText().equals(questions.answer))
+                    {
+                        Log.d("you selected", "Alpha option");
+                    }
+                }
+            }
+        });
+// perform setOnCheckedChangeListener event on no button
+        beta.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+// set No values in ArrayList if RadioButton is checked
+                if (isChecked){
+                    Log.d("you selected", "beta option");
+                }
+                    //selectedAnswers.set(i, "No");
+
+            }
+        });
+        gemma.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+// set No values in ArrayList if RadioButton is checked
+                if (isChecked){
+                    Log.d("you selected", "gemma option");
+                }
+                //selectedAnswers.set(i, "No");
+
+            }
+        });
         imageView.setImageResource(questions.imgId);
         return convertView;
     }

@@ -109,6 +109,7 @@ public class Test extends AppCompatActivity implements View.OnClickListener{
                 if (counter == 5) {
                     Intent intent = new Intent(this, Score.class);
                     intent.putExtra("score", score);
+                    intent.putExtra("Total", 50);
                     startActivity(intent);
 
             }

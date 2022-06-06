@@ -1,5 +1,6 @@
 package com.example.kidslearningapp;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Score extends AppCompatActivity implements View.OnClickListener {
     Button button;
     TextView textView;
+    @SuppressLint("SetTextI18n")
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,8 +21,9 @@ public class Score extends AppCompatActivity implements View.OnClickListener {
         button.setOnClickListener(this);
         Intent intent=getIntent();
         int score=intent.getIntExtra("score", 0);
+        int total=intent.getIntExtra("Total", 0);
         textView=(TextView) findViewById(R.id.textView);
-        textView.setText("Your score is: " +(score*10)+ "/50");
+        textView.setText("Your score is: " +(score*10)+ "/" +total);
     }
 
     @Override

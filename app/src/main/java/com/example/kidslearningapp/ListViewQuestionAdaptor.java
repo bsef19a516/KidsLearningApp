@@ -36,8 +36,11 @@ public class ListViewQuestionAdaptor extends ArrayAdapter<ListViewTest> {
         RadioButton alpha = (RadioButton) convertView.findViewById(R.id.alpha);
         RadioButton beta = (RadioButton) convertView.findViewById(R.id.beta);
         RadioButton gemma = (RadioButton) convertView.findViewById(R.id.gemma);
+        alpha.setText(questions.answer1);
+        beta.setText(questions.answer2);
+        gemma.setText(questions.answer3);
         selectedAnswers = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 3; i++) {
             selectedAnswers.add("Not Attempted");
         }
 // perform setOnCheckedChangeListener event on yes button
@@ -45,8 +48,9 @@ public class ListViewQuestionAdaptor extends ArrayAdapter<ListViewTest> {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 // set Yes values in ArrayList if RadioButton is checked
-                if (isChecked)
-                    selectedAnswers.set(position, "Yes");
+                if (isChecked) {
+                    selectedAnswers.set(position, (String) alpha.getText());
+                }
 
             }
         });
@@ -56,7 +60,7 @@ public class ListViewQuestionAdaptor extends ArrayAdapter<ListViewTest> {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 // set No values in ArrayList if RadioButton is checked
                 if (isChecked)
-                    selectedAnswers.set(position, "No");
+                    selectedAnswers.set(position, (String) beta.getText());
 
             }
         });
@@ -65,7 +69,7 @@ public class ListViewQuestionAdaptor extends ArrayAdapter<ListViewTest> {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 // set No values in ArrayList if RadioButton is checked
                 if (isChecked)
-                selectedAnswers.set(position, "No");
+                selectedAnswers.set(position, (String) gemma.getText());
 
             }
         });

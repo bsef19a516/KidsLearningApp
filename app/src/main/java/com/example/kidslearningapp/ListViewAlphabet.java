@@ -41,7 +41,7 @@ public class ListViewAlphabet extends AppCompatActivity {
         studentArrayList.add(new ListViewLearn("Yy",  R.drawable.yacht,"Yacht"));
         studentArrayList.add(new ListViewLearn("Zz", R.drawable.zebra,"Zebra"));
         ListViewLearnAdaptor adapter = new ListViewLearnAdaptor(getApplicationContext(), studentArrayList);
-        ListView listView = findViewById(R.id.listView);
+        ListView listView = findViewById(R.id.listView2);
         listView.setAdapter(adapter);
     }
 }

@@ -18,7 +18,7 @@ public class MainActivity_listView extends AppCompatActivity implements View.OnC
         l = (Button) findViewById(R.id.learn_listView);
         t = (Button) findViewById(R.id.test);
         gh = (Button) findViewById(R.id.github);
-        listView = (Button) findViewById(R.id.listView);
+        listView = (Button) findViewById(R.id.listView2);
 
         l.setOnClickListener(this);
         t.setOnClickListener(this);
@@ -39,7 +39,7 @@ public class MainActivity_listView extends AppCompatActivity implements View.OnC
             case R.id.github:
                 openWebPage();
                 break;
-            case R.id.listView:
+            case R.id.listView2:
                 Intent intent2 = new Intent(this, MainActivity.class);
                 startActivity(intent2);
                 finish();
